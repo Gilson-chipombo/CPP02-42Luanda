@@ -3,9 +3,19 @@
 
 // Canonical
 Fixed::Fixed() : _fixedPointValue(0) {}
-Fixed::Fixed(const int value) { _fixedPointValue = value << _fractionalBits; }
-Fixed::Fixed(const float value) { _fixedPointValue = roundf(value * (1 << _fractionalBits)); }
-Fixed::Fixed(const Fixed& other) { *this = other; }
+Fixed::Fixed(const int value) 
+{ 
+    _fixedPointValue = value << _fractionalBits; 
+}
+
+Fixed::Fixed(const float value) 
+{ 
+    _fixedPointValue = roundf(value * (1 << _fractionalBits)); 
+}
+
+Fixed::Fixed(const Fixed& other) { 
+    *this = other;
+}
 Fixed& Fixed::operator=(const Fixed& other) {
     if (this != &other)
         _fixedPointValue = other._fixedPointValue;
